@@ -47,7 +47,7 @@ test("getRole() should return \"Employee\"", () => {
   expect(e.getRole()).toBe(testValue);
 });
 
-const Animal = require('../animal.js')
+// const Animal = require('../animal.js')
 
 // test('Make sound function returns animal sound', () => {
 //   const dog = new Animal('dog', 'bark')
