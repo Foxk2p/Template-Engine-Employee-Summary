@@ -44,3 +44,7 @@ prompt(questions)
     console.log('success!')
   })
   .catch(err => console.log(err))
+
+// message: 'What class of employee woule you like to add to your team?'
+// choice: ['Employee', 'Manager', 'Engineer', 'Intern']
+//       },
