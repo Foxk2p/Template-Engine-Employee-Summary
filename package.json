@@ -1,0 +1,28 @@
+{
+  "name": "Template-Engine-Employee-Summary",
+  "version": "1.0.0",
+  "description": "A Node CLI that can use information about employees to generate an HTML webpage and displays summaries for each person.",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foxk2p/Template-Engine-Employee-Summary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Foxk2p/Template-Engine-Employee-Summary/issues"
+  },
+  "homepage": "https://github.com/Foxk2p/Template-Engine-Employee-Summary#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0",
+    "jest": "^26.0.1"
+  }
+}
