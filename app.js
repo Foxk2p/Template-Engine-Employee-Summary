@@ -1,14 +1,15 @@
-const { writeFile, appendFile } = require('fs')
-const { prompt } = require('inquirer')
-const { promisify } = require('util')
-const axios = require('axios')
+const { writeFile, appendFile } = require("fs")
+const { prompt } = require("inquirer")
+const { promisify } = require("util")
 
-const writeFileSync = promisify(writeFile)
-const appendFileSync = promisify(appendFile)
 
-const Manager = require('./Manager')
-const Engineer = require('./Engineer')
-const Intern = require('./Intern')
+const writeFileSync = promisify(writeFile);
+const appendFileSync = promisify(appendFile);
+
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
 let teammember = ''
 let teamHTML = ''
@@ -27,19 +28,6 @@ const top = `
 <body>
 `
 
-const userGithub = data => {
-  return `
-    Github Username: ${data.login}
-
-    ${data.login} Avatar:
-    <img src="${data.avatar_url}" alt="User Avatar" width="150" height="150">
-
-   ${data.login}'s Profile:
-   For more information [Visit GitHub Profile](${data.html_url})
-
-  `
-}
-name, id, title, email
 const userInput = response => {
   return `
 <div>
@@ -56,12 +44,12 @@ const userInput = response => {
 
 writeFileSync('teamHTML.html', top)
   .then(() => {
-    prompt([
+    prompt(
       {
         type: 'list',
         name: 'role',
-        message: 'What type of employee would you like to add to your team?'
-        choice: ['Manager', 'Engineer', 'Intern']
+        message: 'What type of employee would you like to add to your team?',
+        choices: ['Manager', 'Engineer', 'Intern']
       },
       {
         type: 'input',
@@ -98,23 +86,18 @@ writeFileSync('teamHTML.html', top)
         name: 'school',
         message: 'If they are an intern, what school do you go to?'
       },
-    ])
+    )
+
       .then(userInfo => {
         console.log(userInfo)
-
-        axios.get(`https://api.github.com/users/${userInfo.userName}`, {
-        })
-          .then(({ data }) => {
-            appendFileSync('README.md', userGithub(data))
-            appendFileSync('README.md', userInput(userInfo))
-          })
+        appendFileSync('teamHTML.html', userInput(userInfo))
 
       })
-      .catch(err => console.log(err))
   })
   .catch(err => console.log(err))
 
 
+// ./templates/
 // -----------------------------------------------------------------
 // const info = ['Are you a Manager Engineer or Intern' 'What is your name', 'What is your id', 'What is your title', 'What is your email', 'What is your officeNumber', 'address', 'phone', 'ssn']
 
