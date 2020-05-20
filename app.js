@@ -6,10 +6,10 @@ const { promisify } = require("util")
 const writeFileSync = promisify(writeFile);
 const appendFileSync = promisify(appendFile);
 
-const Employee = require("./lib/Employee");
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+
+// const Manager = require("./lib/Manager");
+// const Engineer = require("./lib/Engineer");
+// const Intern = require("./lib/Intern");
 
 let teammember = ''
 let teamHTML = ''
@@ -42,14 +42,49 @@ const userInput = response => {
   `
 }
 
+// Add member and move to questions or print finish
+
+// const mainMenu = () => {
+//   prompt({
+//     type: 'list',
+//     name: 'action',
+//     message: 'Would you like to add an person to your team? If so, what role?',
+//     choices: ['No', 'Manager', 'Engineer', 'Intern']
+//   })
+//     .then(({ action }) => {
+//       switch (action) {
+//         case 'No':
+//           getCategories()
+//           break
+//         case 'Engineer':
+//           viewLeaderboard()
+//           break
+//         case 'Intern':
+//           process.exit()
+//           break
+//       }
+//     })
+//     .catch(err => console.log(err))
+// }
+
+// mainMenu()
+
+// --------------------------------------------------------
+// condition for asking paricular line of questions
+
+// const newQuestion = () => {
+//   if () {
+//     prompt({
+
+// ------------------------------------------------------
+
 writeFileSync('teamHTML.html', top)
   .then(() => {
-    prompt(
+    prompt([
       {
-        type: 'list',
-        name: 'role',
-        message: 'What type of employee would you like to add to your team?',
-        choices: ['Manager', 'Engineer', 'Intern']
+        type: 'input',
+        name: 'addOrEnd',
+        message: 'Would you like to add an person to your team? If so, what role?'
       },
       {
         type: 'input',
@@ -73,29 +108,36 @@ writeFileSync('teamHTML.html', top)
       },
       {
         type: 'input',
-        name: 'github',
-        message: 'If they are an engineer, what is their GitHub username?',
-      },
-      {
-        type: 'input',
         name: 'userName',
-        message: 'What is your GitHub username?'
+        message: 'If they are an engineer, what is their GitHub username?',
       },
       {
         type: 'input',
         name: 'school',
         message: 'If they are an intern, what school do you go to?'
-      },
-    )
+      }
+    ])
 
       .then(userInfo => {
         console.log(userInfo)
         appendFileSync('teamHTML.html', userInput(userInfo))
 
       })
+      .catch(err => console.log(err))
   })
   .catch(err => console.log(err))
 
+  // --------------------------------
+// prompt(questions)
+//   .then(data => writeFileSync('profile.html', profile(data)))
+//   .then(() => {
+//     console.log('success!')
+//   })
+//   .catch(err => console.log(err))
+
+
+// -------------------------------
+// const Employee = require("./lib/Employee");
 
 // ./templates/
 // -----------------------------------------------------------------
