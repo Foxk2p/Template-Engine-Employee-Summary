@@ -53,3 +53,5 @@ test("getRole() should return \"Employee\"", () => {
 //   const dog = new Animal('dog', 'bark')
 //   expect(dog.makeSound()).toEqual(dog.sound)
 // })
+
+module.exports = Employee
