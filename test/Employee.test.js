@@ -47,11 +47,12 @@ test("getRole() should return \"Employee\"", () => {
   expect(e.getRole()).toBe(testValue);
 });
 
+module.exports = Employee
+
+
 // const Animal = require('../animal.js')
 
 // test('Make sound function returns animal sound', () => {
 //   const dog = new Animal('dog', 'bark')
 //   expect(dog.makeSound()).toEqual(dog.sound)
 // })
-
-module.exports = Employee
