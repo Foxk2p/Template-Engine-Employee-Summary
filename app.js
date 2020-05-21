@@ -127,6 +127,12 @@ writeFileSync('teamHTML.html', top)
   })
   .catch(err => console.log(err))
 
+  // ----------------------------------
+  new Promise ( (res, rej) => {
+    res (anything)
+    rej( new Error ( ))
+  })
+
   // --------------------------------
 // prompt(questions)
 //   .then(data => writeFileSync('profile.html', profile(data)))
