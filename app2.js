@@ -6,12 +6,15 @@ const { promisify } = require("util")
 const writeFileSync = promisify(writeFile)
 const appendFileSync = promisify(appendFile)
 
-const Employee = require("./lib/Employee.js")
-// const Manager = require("./lib/Manager.js")
-// const Engineer = require("./lib/Engineer.js")
-// const Intern = require("./lib/Intern.js")
 
-// const e = new Employee();
+// const Manager = require("./lib/Manager");
+// const Engineer = require("./lib/Engineer");
+// const Intern = require("./lib/Intern");
+
+let teammember = ''
+let teamHTML = ''
+let role = ''
+let team = ''
 
 const top = `
 <!DOCTYPE html>
@@ -24,10 +27,10 @@ const top = `
 </head>
 <body>
 `
-// const botton = `
-// </body >
-// </html >
-// `
+const botton = `
+</body >
+</html >
+`
 
 const userInput = response => {
   return `
@@ -121,20 +124,20 @@ writeFileSync('teamHTML.html', top)
       .then(userInfo => {
         console.log(userInfo)
         appendFileSync('teamHTML.html', userInput(userInfo))
-        let Employee1 = new Employee(name, id, email)
-
+        .then(userInfo.name.action) => {
+          appendFileSync('teamHTML.html', `</body></html>`)
+        }
 
       })
       .catch(err => console.log(err))
   })
   .catch(err => console.log(err))
 
-
-const botton = `
-</body >
-</html >
-`
-// appendFileSync('teamHTML.html', botton)
+appendFileSync('teamHTML.html', botton)
+ 
+if ( ) => {
+  appendFileSync('teamHTML.html', `</body></html>`)
+}
 
   // ----------------------------------
   // new Promise ( (res, rej) => {

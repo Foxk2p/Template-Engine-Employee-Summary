@@ -2,7 +2,7 @@ const Employee = require("../lib/Employee");
 
 test("Can instantiate Employee instance", () => {
   const e = new Employee();
-  expect(typeof(e)).toBe("object");
+  expect(typeof (e)).toBe("object");
 });
 
 test("Can set name via constructor arguments", () => {
@@ -47,7 +47,7 @@ test("getRole() should return \"Employee\"", () => {
   expect(e.getRole()).toBe(testValue);
 });
 
-module.exports = Employee
+// module.exports = Employee
 
 
 // const Animal = require('../animal.js')
